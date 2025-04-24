@@ -1,0 +1,18 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 发布
+
+发布服务端 (server) 的流程如下：
+交叉编译: 我们首先将 server/main.go 编译成适用于 Linux (amd64 架构) 的可执行文件。
+命令: GOOS=linux GOARCH=amd64 go build -o binproxy-server-linux ./server
+结果: 在项目根目录生成了 binproxy-server-linux 文件。
+创建目标目录: 为了整理发布文件，我们创建了 dist/server 目录结构。
+命令: mkdir -p dist/server
+移动并重命名二进制文件: 将编译好的 binproxy-server-linux 移动到 dist/server/ 目录下，并将其重命名为 binproxy-server。
+命令: mv binproxy-server-linux dist/server/binproxy-server
+复制配置文件: 将服务端的配置文件 server/config.yaml 复制到 dist/server/ 目录下，确保程序运行时能找到它。
+命令: cp server/config.yaml dist/server/config.yaml
+最终结果: dist/server 目录下包含了可在 Linux 环境下运行的 binproxy-server 可执行文件和其所需的 config.yaml 配置文件，可以直接将 dist/server 目录部署到服务器。

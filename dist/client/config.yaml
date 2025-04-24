@@ -1,0 +1,4 @@
+server_addr: "127.0.0.1" # Server IP or hostname
+control_port: 6034
+client_name: "client_A"
+client_key: "11" 
