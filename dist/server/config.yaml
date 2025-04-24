@@ -1,8 +1,0 @@
-control_port: 6034
-client_configs:
-  - client_name: "client_A"
-    client_key: "11"
-    proxies:
-      - server_port: 8000
-        client_ip: "127.0.0.1"
-        client_port: 8080
